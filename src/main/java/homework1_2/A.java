@@ -10,7 +10,7 @@ public class A extends Parent{
 
     public A() {
         super("Aqua-1");
-        System.out.println("It's a new empty object of class " + A.class.getSimpleName());
+        super.log.info("It's a new empty object of class " + A.class.getSimpleName());
     }
 
     public A(String name, int num) {

@@ -9,7 +9,7 @@ public class B extends Parent{
 
     public B() {
         super("Bob-1");
-        System.out.println("It's a new empty object of class " + B.class.getSimpleName());
+        super.log.info("It's a new empty object of class " + B.class.getSimpleName());
     }
 
     public B(String name, int num) {
@@ -25,7 +25,7 @@ public class B extends Parent{
     public void secondMethod(List<String> list) {
         Collections.sort(list);
         for (String i : list) {
-            System.out.println(i);
+            super.log.debug(i);
         }
     }
 }
