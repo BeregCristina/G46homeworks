@@ -1,9 +1,15 @@
 package homework1_2;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Application {
+
+    private final static Logger LOG = LogManager.getLogger("THE MAIN CLASS");
+
     public static void main(String[] args) {
         A objectA = new A();
         B objectB = new B();
@@ -22,10 +28,9 @@ public class Application {
 
 
         objectA.charMethod(null);
-        System.out.println("--------------");
+        LOG.info("--------------");
         objectB.charMethod(objectA.firstMethod());
-        System.out.println();
-        System.out.println("--------------");
+        LOG.info("--------------");
         objectB.charMethod(l);
 
     }
