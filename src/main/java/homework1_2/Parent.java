@@ -1,8 +1,15 @@
 package homework1_2;
 
+import org.apache.logging.log4j.Level;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.List;
 
 public class Parent {
+
+    protected Logger log;
+
     public static final String ANSI_RED = "\u001B[31m";
     public static final String ANSI_CYAN = "\u001B[36m";
     public static final String ANSI_YELLOW = "\u001B[33m";
@@ -11,10 +18,12 @@ public class Parent {
 
     public Parent(String name) {
         this.name = name;
+        this.log = LogManager.getLogger(this.getClass());
+        log.debug("New object of Parent class was created!");
     }
 
     public void method() {
-        System.out.println(this.name + ": How Do You do?");
+        this.log.info(this.name + ": How Do You do?");
     }
 
     public void charMethod(List<String> list) {
@@ -24,13 +33,13 @@ public class Parent {
             for (String s : myArray) {
                 char[] stringToChar = s.toCharArray();
                 for (char ch : stringToChar) {
-                    System.out.print(ch + " ");
+                    this.log.debug(ch + " ");
                 }
             }
         } catch (NullPointerException e) {
-            System.out.println(ANSI_YELLOW + "My ERROR! An array is not defined. Please check the correctness of the entered values!");
+            this.log.log(Level.ERROR,"My ERROR! An array is not defined. Please check the correctness of the entered values!",e);
         } catch (Exception e){
-            System.out.println("Another Error!");
+            this.log.error("Another Error!",e);
         }
 
     }
